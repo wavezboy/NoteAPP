@@ -11,6 +11,7 @@ export default defineConfig({
         target: "https://noteappbackend-production-94d1.up.railway.app",
         changeOrigin: true,
         secure: false,
+        rewrite: (path) => path.replace("/api", ""),
       },
     },
   },
