@@ -41,6 +41,7 @@ export async function signUp(credentials: signUpCredentials): Promise<user> {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(credentials),
+    credentials: "include",
   });
 
   return response.json();
@@ -56,13 +57,17 @@ export async function login(credentials: loginCredentials): Promise<user> {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(credentials),
+    credentials: "include",
   });
 
   return response.json();
 }
 
 export async function logOut() {
-  await fetchData("/api/users/logout", { method: "POST" });
+  await fetchData("/api/users/logout", {
+    method: "POST",
+    credentials: "include",
+  });
 }
 
 interface NoteInput {
