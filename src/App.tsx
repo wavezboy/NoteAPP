@@ -22,6 +22,7 @@ function App() {
     async function fetchedLoggedInUser() {
       try {
         const user = await getLoggedInUser();
+
         setloggedInUser(user);
       } catch (error) {
         console.log(error);
