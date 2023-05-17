@@ -67,7 +67,10 @@ function App() {
               {SignUpBox && (
                 <SignUp
                   setSignUpBox={setSignUpBox}
-                  onSignUpSuccesful={() => {}}
+                  onSignUpSuccesful={(user) => {
+                    setloggedInUser(user);
+                    setSignUpBox(false);
+                  }}
                 />
               )}
             </div>
