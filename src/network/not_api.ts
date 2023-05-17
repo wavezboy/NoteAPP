@@ -14,18 +14,24 @@ const fetchData = async (input: RequestInfo, init?: RequestInit) => {
 };
 
 export async function fetchNotes(): Promise<Note[]> {
-  const response = await fetchData("/api/notes", {
-    method: "GET",
-  });
+  const response = await fetchData(
+    "https://noteappbackend-production-94d1.up.railway.app/api/notes",
+    {
+      method: "GET",
+    }
+  );
 
   return response.json();
 }
 
 export async function getLoggedInUser(): Promise<user> {
-  const response = await fetchData("/api/users", {
-    method: "GET",
-    credentials: "include",
-  });
+  const response = await fetchData(
+    "https://noteappbackend-production-94d1.up.railway.app/api/users",
+    {
+      method: "GET",
+      credentials: "include",
+    }
+  );
 
   return response.json();
 }
@@ -37,11 +43,14 @@ export interface signUpCredentials {
 }
 
 export async function signUp(credentials: signUpCredentials): Promise<user> {
-  const response = await fetchData("/api/users/signup", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(credentials),
-  });
+  const response = await fetchData(
+    "https://noteappbackend-production-94d1.up.railway.app/api/users/signup",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(credentials),
+    }
+  );
 
   return response.json();
 }
@@ -52,17 +61,23 @@ export interface loginCredentials {
 }
 
 export async function login(credentials: loginCredentials): Promise<user> {
-  const response = await fetchData("/api/users/login", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(credentials),
-  });
+  const response = await fetchData(
+    "https://noteappbackend-production-94d1.up.railway.app/api/users/login",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(credentials),
+    }
+  );
 
   return response.json();
 }
 
 export async function logOut() {
-  await fetchData("/api/users/logout", { method: "POST" });
+  await fetchData(
+    "https://noteappbackend-production-94d1.up.railway.app/api/users/logout",
+    { method: "POST" }
+  );
 }
 
 interface NoteInput {
@@ -71,11 +86,14 @@ interface NoteInput {
 }
 
 export async function CreateNote(note: NoteInput): Promise<Note> {
-  const response = await fetchData("/api/notes", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(note),
-  });
+  const response = await fetchData(
+    "https://noteappbackend-production-94d1.up.railway.app/api/notes",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(note),
+    }
+  );
 
   return response.json();
 }
@@ -84,17 +102,23 @@ export async function UpdateNote(
   noteId: string,
   note: NoteInput
 ): Promise<Note> {
-  const response = await fetchData("/api/notes/" + noteId, {
-    method: "PATCH",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(note),
-  });
+  const response = await fetchData(
+    "https://noteappbackend-production-94d1.up.railway.app/api/notes/" + noteId,
+    {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(note),
+    }
+  );
 
   return response.json();
 }
 
 export async function DeleteNote(noteId: string) {
-  const response = await fetchData("/api/notes/" + noteId, {
-    method: "DELETE",
-  });
+  const response = await fetchData(
+    "https://noteappbackend-production-94d1.up.railway.app/api/notes/" + noteId,
+    {
+      method: "DELETE",
+    }
+  );
 }

@@ -59,6 +59,7 @@ export default function SignUp({
               className="w-full "
               onSubmit={handleSubmit((data) => {
                 onSubmit(data);
+                console.log(data);
               })}
             >
               <div className="flex w-[300px] sm:w-[400px] mx-auto items-center justify-center gap-4 flex-col">
