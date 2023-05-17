@@ -29,7 +29,7 @@ export async function getLoggedInUser(): Promise<user> {
     "https://noteappbackend-production-94d1.up.railway.app/api/users",
     {
       method: "GET",
-      credentials: "include",
+      credentials: "same-origin",
     }
   );
 
@@ -49,6 +49,7 @@ export async function signUp(credentials: signUpCredentials): Promise<user> {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(credentials),
+      credentials: "same-origin",
     }
   );
 
@@ -67,6 +68,7 @@ export async function login(credentials: loginCredentials): Promise<user> {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(credentials),
+      credentials: "same-origin",
     }
   );
 
