@@ -9,8 +9,6 @@ export default defineConfig({
       "/api": {
         // target: "http://localhost:5000",
         target: "https://noteappbackend-production-94d1.up.railway.app",
-        changeOrigin: true,
-        secure: true,
       },
     },
   },
