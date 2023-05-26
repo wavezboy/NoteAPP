@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { fetchNotes } from "./network/not_api";
+import { AxiosError } from "axios";
 import "./App.css";
 
 import SignUp from "./components/SignUp";
@@ -96,3 +98,27 @@ function App() {
 }
 
 export default App;
+
+// const App = () => {
+//   useEffect(() => {
+//     const fetch = async () => {
+//       try {
+//         const data = await fetchNotes();
+
+//         console.log(data);
+//       } catch (error: any) {
+//         console.log(error.response.data.error);
+//       }
+//     };
+
+//     fetch();
+//   }, []);
+
+//   return (
+//     <div>
+//       <h1>Hello</h1>
+//     </div>
+//   );
+// };
+
+// export default App;

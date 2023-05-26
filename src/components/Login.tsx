@@ -22,8 +22,9 @@ export default function Login({ setloginBox, onLoginSuccesful }: LoginProps) {
     try {
       const user = await login(credentials);
       onLoginSuccesful(user);
-    } catch (error) {
-      alert(error);
+    } catch (error: any) {
+      console.log(error.response.data.error);
+      alert(error.response.data.error);
       console.log(error);
     }
   }

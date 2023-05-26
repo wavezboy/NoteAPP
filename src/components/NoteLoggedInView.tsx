@@ -37,9 +37,9 @@ export default function NoteLoggedInView() {
     try {
       await NotesApi.DeleteNote(note._id);
       setNotes(notes.filter((prevNotes) => prevNotes._id !== note._id));
-    } catch (error) {
-      console.log(error);
-      alert(error);
+    } catch (error: any) {
+      console.log(error.response.data.error);
+      alert(error.response.data.error);
     }
   };
 

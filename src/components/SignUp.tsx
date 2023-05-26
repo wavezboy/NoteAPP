@@ -27,8 +27,9 @@ export default function SignUp({
       console.log(credentials);
       const newUser = await signUp(credentials);
       onSignUpSuccesful(newUser);
-    } catch (error) {
-      alert(error);
+    } catch (error: any) {
+      console.log(error.response.data.error);
+      alert(error.response.data.error);
       console.log(error);
     }
   }

@@ -62,9 +62,9 @@ const Page = ({
       }
 
       onNoteSaved(noteResponse);
-    } catch (error) {
-      console.log(error);
-      alert(error);
+    } catch (error: any) {
+      console.log(error.response.data.error);
+      alert(error.response.data.error);
     }
   };
 
