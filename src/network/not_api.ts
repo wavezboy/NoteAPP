@@ -3,7 +3,7 @@ import { user } from "../model/user";
 import axios from "axios";
 
 const fetchData = axios.create({
-  // baseURL: "https://noteappbackend-production-94d1.up.railway.app",
+  baseURL: "https://noteappbackend-production-94d1.up.railway.app",
   withCredentials: true,
 });
 
